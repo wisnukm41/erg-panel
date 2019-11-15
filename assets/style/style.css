@@ -1,0 +1,28 @@
+.edit-btn {
+	padding: 2pt 5pt;
+}
+
+#photo {
+	display: none;
+}
+
+#edit_photo {
+	margin-left: -40px;
+	margin-bottom: 5px;
+	cursor: pointer;
+	color: black;
+}
+
+#edit_photo:hover {
+	color: rgb(90, 95, 95);
+}
+
+.rounded-circle {
+	padding: 1px;
+	border: solid 5px rgb(78, 78, 78);
+	overflow: hidden;
+	background-size: cover;
+	background-position: center;
+	height: 100px;
+	width: 100px;
+}
