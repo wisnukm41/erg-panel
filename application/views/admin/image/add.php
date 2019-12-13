@@ -7,13 +7,12 @@
     <div class="alert alert-success" role="alert">
         <?php echo $this->session->flashdata('success'); ?>
     </div>
-    <?php endif; ?>
-    <?php 
-        if(validation_errors()){ ?>
+    <?php endif;  
+        if(validation_errors()): ?>
           <div class="alert alert-danger" role="alert">
           <?php echo validation_errors(); ?>
       </div>
-        <?php } ?>
+    <?php endif ?>
     <!-- Content Header (Page header) -->
       <div class="content-header">
         <div class="row mb-2">
@@ -26,7 +25,7 @@
     <!-- general form elements -->
     <div class="card">
       <div class="card-header">
-        <a href="<?= base_url('admin/image') ?>">Kembali</a>
+        <a href="<?= base_url('admin/image') ?>" class='btn btn-warning'>Kembali</a>
       </div>
       <!-- /.card-header -->
       <!-- form start -->

@@ -77,7 +77,7 @@
 
      public function add()
      {
-        if(!$this->ion_auth->in_group('1') && !$this->ion_auth->in_group(7)) redirect('admin/products','refresh');
+        if(!$this->ion_auth->in_group(1) && !$this->ion_auth->in_group(7)) redirect('admin/products','refresh');
          $data['title'] = 'Tambah Data || ERG';
          $data['actives'] = 'product';
 
@@ -97,7 +97,7 @@
 
      public function edit($id = null)
      {
-        if(!$this->ion_auth->in_group('1') && !$this->ion_auth->in_group(7)) redirect('admin/products','refresh');
+        if(!$this->ion_auth->in_group(1) && !$this->ion_auth->in_group(7)) redirect('admin/products','refresh');
         if(!isset($id)) redirect('admin/products','refresh');
 
         $product = $this->product_model;
@@ -123,7 +123,7 @@
      public function delete($id=null){
         
         if(!isset($id)) show_404();
-        if(!$this->ion_auth->in_group('1') && !$this->ion_auth->in_group(7)) redirect('admin/products','refresh');
+        if(!$this->ion_auth->in_group(1) && !$this->ion_auth->in_group(7)) redirect('admin/products','refresh');
         if($this->product_model->delete($id)){
             redirect(base_url('admin/products'),'refresh');
         }
@@ -147,7 +147,7 @@
 
      public function add_image($id=null)
      {
-        if(!$this->ion_auth->in_group('1')) redirect('admin/products','refresh');
+        if(!$this->ion_auth->in_group(1) && !$this->ion_auth->in_group(7)) redirect('admin/products','refresh');
         $image = $this->image_product_model;
         $validation = $this->form_validation;
         $validation->set_rules($image->rules());
@@ -173,7 +173,7 @@
      }
      
      public function imagedelete($id=null,$product){
-        if(!$this->ion_auth->in_group('1') && !$this->ion_auth->in_group(7)) redirect('admin/products','refresh');
+        if(!$this->ion_auth->in_group(1) && !$this->ion_auth->in_group(7)) redirect('admin/products','refresh');
         if(!isset($id)) show_404();
         
         if($this->image_product_model->delete($id)){

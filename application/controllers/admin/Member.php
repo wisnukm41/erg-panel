@@ -35,6 +35,8 @@
      public function edit($id)
      {
         if(!isset($id)) redirect('admin/member','refresh');
+        if(!!$this->ion_auth->is_admin()) redirect('admin/member','refresh');
+        
 
         $member = $this->member_model;
         $validation = $this->form_validation;
@@ -67,11 +69,6 @@
              'id'=>'level'
          ];
 
-         $data['sub_riset'] = [
-            'class'=>'form-control',
-            'id'=>'sub_riset'
-        ];
-
         $data['active'] ="member";
 
          if(!$data['member']) show_404();
@@ -82,6 +79,7 @@
 
      public function delete($id)
      {
+        if(!$this->ion_auth->is_admin()) redirect('admin/member','refresh');
        $this->member_model->delete($id);
 
        redirect('admin/member','refresh');

@@ -25,7 +25,7 @@
     <!-- general form elements -->
     <div class="card">
       <div class="card-header">
-        <a href="<?= base_url('admin/products/image/').$product->id ?>"><i class="fas fa-long-arrow-alt-left"></i> Kembali </a>
+        <a href="<?= base_url('admin/products/image/').$product->id ?>" class='btn btn-warning'> Kembali </a>
       </div>
       <!-- /.card-header -->
       <!-- form start -->

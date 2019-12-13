@@ -13,9 +13,11 @@
         <!-- /.content-header -->
         <!-- general form elements -->
         <div class="card">
+        <?php if($this->ion_auth->in_group('1') || $this->ion_auth->in_group('7')):  ?>
          <div class="card-header">
             <a href="<?php echo base_url('admin/image/add') ?>" class='btn btn-primary'>Tambah Image</a>
          </div>
+         <?php endif ?>
          <!-- /.card-header -->
             <div class="card-body">
                 <div class="table-responsive">
@@ -27,7 +29,7 @@
                                 <th>Gambar</th>
                                 <th width=15%>Deskripsi</th>
                                 <th width=2%>Slides</th>
-                                <?php if($this->ion_auth->in_group(1)):  ?>
+                                <?php if($this->ion_auth->in_group('1') || $this->ion_auth->in_group('7')):  ?>
                                 <th>Aksi</th>
                                 <?php endif ?>
                             </tr>
@@ -57,7 +59,7 @@
                                     <label class="form-check-label" for="carousel"></label>
                                 </div>
                                 </td>
-                                <?php if($this->ion_auth->in_group(1)): ?>
+                                <?php if($this->ion_auth->in_group('1') || $this->ion_auth->in_group('7')): ?>
                                 <td>
                                     <a href="<?php echo base_url('admin/image/edit/').$image->id ?> " class='btn btn-primary edit-btn'><i class="fas fa-pen"></i></a>
                                     <a href="<?php echo base_url('admin/image/delete/').$image->id ?> " class='btn btn-danger edit-btn remove'><i class="fas fa-trash-alt"></i></a>

@@ -13,19 +13,22 @@
         <!-- /.content-header -->
         <!-- general form elements -->
         <div class="card">
-         <div class="card-header">
-            <a href="<?php echo base_url('admin/finence/add') ?>" class='btn btn-primary'>Tambah Data</a>
-            <?php if ($this->session->flashdata('success')): ?>
-            <div class="alert alert-success" role="alert">
-            <?php echo $this->session->flashdata('success'); ?>
+          <?php if($this->ion_auth->in_group(1) || $this->ion_auth->in_group(7)):  ?>  
+            <div class="card-header">
+              <a href="<?php echo base_url('admin/finence/add') ?>" class='btn btn-primary'>Tambah Data</a>
+              <?php if ($this->session->flashdata('success')): ?>
+                <div class="alert alert-success" role="alert">
+                  <?php echo $this->session->flashdata('success'); ?>
+                </div>
+              <?php endif; ?>
+              <?php if ($this->session->flashdata('warning')): ?>
+                <div class="alert alert-warning" role="alert">
+                  <?php echo $this->session->flashdata('warning'); ?>
+                </div>
+              <?php endif; ?>
             </div>
-             <?php endif; ?>
-             <?php if ($this->session->flashdata('warning')): ?>
-            <div class="alert alert-warning" role="alert">
-            <?php echo $this->session->flashdata('warning'); ?>
-            </div>
-             <?php endif; ?>
-         </div>
+          <?php endif ?>
+
          <!-- /.card-header -->
             <div class="card-body">
             <div class="container">
@@ -61,8 +64,8 @@
                                     <th>Tanggal</th>
                                     <th>Asal</th>
                                     <th>Jumlah</th>
-                                    <?php if($this->ion_auth->in_group(1)) : ?>
-                                    <th width=10%>Aksi</th>
+                                    <?php if($this->ion_auth->in_group(1) || $this->ion_auth->in_group(7)) : ?>
+                                      <th width=10%>Aksi</th>
                                     <?php endif ?>
                                 </tr>
                             </thead>
@@ -84,7 +87,7 @@
                                     <td>
                                         <?php echo total($in->value) ?>
                                     </td>
-                                    <?php if($this->ion_auth->in_group(1)): ?>
+                                    <?php if($this->ion_auth->in_group(1) || $this->ion_auth->in_group(7)): ?>
                                     <td>
                                       <a href="<?php echo base_url('admin/finence/edit/').$in->id ?>" class='btn btn-primary edit-btn'><i class="fas fa-pen"></i></a>
                                       <a href="<?php echo base_url('admin/finence/delete/').$in->id ?>" class='btn btn-danger edit-btn remove'><i class="fas fa-trash-alt"></i></a>
@@ -110,12 +113,14 @@
                                     <th>Tanggal</th>
                                     <th>Asal</th>
                                     <th>Jumlah</th>
-                                    <th width=10%>Aksi</th>
+                                    <?php if($this->ion_auth->in_group(1) || $this->ion_auth->in_group(7)) : ?>
+                                      <th width=10%>Aksi</th>
+                                    <?php endif ?>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $i=1;
-                                      $outtotal = 0;
+                              <?php $i=1;
+                                $outtotal = 0;
                                 foreach ($out as $out): 
                                 $outtotal = $outtotal + $out->value; ?>
                                 <tr id=<?= $out->id ?>>
@@ -131,10 +136,12 @@
                                     <td>
                                         <?php echo total($out->value) ?>
                                     </td>
-                                    <td>
+                                    <?php if($this->ion_auth->in_group(1) || $this->ion_auth->in_group(7)): ?>
+                                      <td>
                                         <a href="<?php echo base_url('admin/finence/edit/').$out->id ?>" class='btn btn-primary edit-btn'><i class="fas fa-pen"></i></a>
                                         <a href="<?php echo base_url('admin/finence/delete/').$out->id ?>" class='btn btn-danger edit-btn remove'><i class="fas fa-trash-alt"></i></a>
-                                    </td>
+                                      </td>
+                                    <?php endif ?>
                                 </tr>
                                 <?php endforeach; ?>
                                 <tr>

@@ -13,11 +13,11 @@
         <!-- /.content-header -->
         <!-- general form elements -->
         <div class="card">
-         <div class="card-header">
-            <?php if($this->ion_auth->in_group('1') || $this->ion_auth->in_group('2')) : ?>
-                <a href="<?= base_url('admin/meeting/add') ?>" class='btn btn-primary' class='btn btn-primary'>Add Meeting</a>
-            <?php endif; ?>
-         </div>
+          <?php if($this->ion_auth->in_group('1') || $this->ion_auth->in_group('7')) : ?>
+            <div class="card-header">
+                <a href="<?= base_url('admin/meeting/add') ?>" class='btn btn-primary' class='btn btn-primary'>Tambah Rapat</a>
+            </div>
+          <?php endif; ?>
          <!-- /.card-header -->
           <div class="card-body">
             <?php
@@ -35,7 +35,7 @@
                       <div class="card-tools pull-right">
                           <small> Ditulis Oleh <?= $meeting->writer ?> at <?= $meeting->date ?></small>
                           <button class="btn btn-card-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
-                          <?php if($this->ion_auth->in_group('1')) : ?>
+                          <?php if($this->ion_auth->in_group('1') || $this->ion_auth->in_group('7')) : ?>
                             <a href="<?= base_url('admin/meeting/edit/').$meeting->id ?>" class="btn btn-card-tool"><i class="fas fa-pen"></i></a>
                             <a href="<?= base_url('admin/meeting/delete/').$meeting->id ?>" class="btn btn-card-tool remove"><i class="fa fa-times"></i></a>
                           <?php endif ?>

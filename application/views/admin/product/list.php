@@ -13,11 +13,12 @@
         <!-- /.content-header -->
         <!-- general form elements -->
         <div class="card">
+         <?php if($this->ion_auth->in_group('1') || $this->ion_auth->in_group('7')): ?>
          <div class="card-header">
-         <?php if($this->ion_auth->in_group('1')): ?>
+         
             <a href="<?php echo base_url('admin/products/add') ?>" class='btn btn-primary'>Tambah Produk</a>
-         <?php endif ?>
          </div>
+         <?php endif ?>
          <!-- /.card-header -->
             <div class="card-body">
                 <div class="table-responsive">
@@ -27,10 +28,8 @@
                                 <th width=5%>No</th>
                                 <th>Nama</th>
                                 <th>Deskripsi</th>
-                                <th>Tanggal</th>
-                                <?php if($this->ion_auth->in_group('1')): ?>
-                                <th>Aksi</th>
-                                <?php endif ?>
+                                <th width=15%>Tanggal Dibuat</th>
+                                <th width=15%>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -48,10 +47,14 @@
                                 <td>
                                     <?php echo $product->date ?>
                                 </td>
-                                <?php if($this->ion_auth->in_group('1')): ?>
+                                <?php if($this->ion_auth->in_group('1') || $this->ion_auth->in_group('7')): ?>
                                 <td>
                                     <a href="<?php echo base_url('admin/products/edit/').$product->id ?> " class='btn btn-primary edit-btn'><i class="fas fa-pen"></i></a>
                                     <a href="<?php echo base_url('admin/products/delete/').$product->id ?> " class='btn btn-danger edit-btn remove'><i class="fas fa-trash-alt"></i></a>
+                                    <a href="<?php echo base_url('admin/products/image/').$product->id ?>" class='btn btn-success edit-btn'><i class="fas fa-photo"></i></a>
+                                </td>
+                                <?php else: ?>
+                                <td>
                                     <a href="<?php echo base_url('admin/products/image/').$product->id ?>" class='btn btn-success edit-btn'><i class="fas fa-photo"></i></a>
                                 </td>
                                 <?php endif ?>

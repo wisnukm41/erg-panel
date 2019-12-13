@@ -26,6 +26,7 @@
                 ->create();
 
             $this->database = $firebase->getDatabase();
+
         }
 
         public function rules()
@@ -35,6 +36,54 @@
                 'label' => 'Name',
                 'rules' => 'required'],
             ];
+        }
+
+        public function getcalender($year , $month)
+	    {
+
+            $prefs = array(
+                        'start_day'    => 'monday',
+                        'month_type'   => 'long',
+                        'day_type'     => 'short',
+                        'show_next_prev' => TRUE,
+                        'next_prev_url'   => base_url('admin/event/index/'),
+                        'template' => array(
+                        'cal_cell_content' => '<a href="{content}" class="event">{day}</a>',
+                        'heading_title_cell'=>'<th colspan="{colspan}" class="cal_heading_title">{heading}</th>',
+                        'heading_previous_cell' => '<th><a href="{previous_url}" class="btn btn-primary arrow">&lt;&lt;</a></th>',
+                        'heading_next_cell' => '<th><a href="{next_url}" class="btn btn-primary arrow">&gt;&gt;</a></th>',
+                        'table_open'=> '<table class="calendar-table" width = 100% cellspacing=0>',
+                        'cal_cell_content' => '<div class="day-content">{day}</div>',
+                        'cal_cell_content_today' => '<div class="highlight day-content">{day}</div>',
+                        'cal_cell_no_content_today' => '<div class="highlight">{day}</div>'
+                    )
+                );
+
+            $this->load->library('calendar',$prefs); // Load calender library
+
+            $calendarData = $this->getCalendarData($year, $month);
+                
+            $data=[];
+            
+            if($calendarData !== null){
+                foreach ($calendarData as $d) {
+                    $day = explode('-',$d->date)[2];
+                    $data[(int)$day] = 'test';
+                }
+            }
+
+            return $this->calendar->generate($year , $month , $data);
+        }
+
+        public function getCalendarData($year, $month)
+        {
+            $year === null ? $year = date('Y') : $year = $year;
+            $month === null ? $month = date('m') : $month = $month; 
+            
+            $this->db->select('*');
+            $this->db->from($this->table);
+            $this->db->like('date', "$year-$month");
+            return $this->db->get()->result();
         }
 
         public function getAll()
@@ -65,7 +114,7 @@
             $this->id = uniqid();
             $this->name = $post['name'];
             $this->description = $post['description'];
-            $this->date = convert_date($post['date']);    
+            $this->date = convert_date($post['date']); 
             $this->db->insert($this->table, $this);
             $data = [$this->id => [
                 'name' => $this->name,

@@ -169,8 +169,8 @@
           </li>
           <li class="nav-item">
             <a href="<?= base_url('admin/event/') ?>" class="nav-link" id='event'>
-            <i class="fas fa-flag nav-icon"></i>
-              <p>Acara</p>
+            <i class="fas fa-calendar-alt nav-icon"></i>
+              <p>Kalender</p>
             </a>
           </li>
           <li class="nav-item">

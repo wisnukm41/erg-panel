@@ -23,12 +23,12 @@
 
         public function getAll()
         {
-            return $this->db->order_by('date','DESC')->get($this->table);
+            return $this->db->order_by('id desc','date desc')->get($this->table);
         }
 
         public function getPage($perpage,$offset)
         {
-            return $this->db->get($this->table,$perpage,$offset)->result();
+            return $this->db->order_by('id desc','date desc')->get($this->table,$perpage,$offset)->result();
         }
     
         public function getById($id)
@@ -39,7 +39,6 @@
         public function save()
         {
             $post = $this->input->post();
-            $this->id = uniqid();
             $this->topic = $post['topic'];
             $this->description = $post['description'];
             $this->date = $post['dates'];   

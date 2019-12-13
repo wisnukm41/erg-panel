@@ -93,9 +93,6 @@ $route['admin/award'] = 'admin/award/list/';
 //Tools Route
 $route['admin/tools'] = 'admin/tools/list';
 
-//Event Route
-$route['admin/event'] = 'admin/event/list';
-
 //News Route
 $route['news'] = 'erg/news';
 

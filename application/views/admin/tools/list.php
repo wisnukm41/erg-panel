@@ -13,9 +13,11 @@
         <!-- /.content-header -->
         <!-- general form elements -->
         <div class="card">
+        <?php if($this->ion_auth->in_group('1') || $this->ion_auth->in_group('7')): ?>
          <div class="card-header">
             <a href="<?php echo base_url('admin/tools/add') ?>" class='btn btn-primary'>Tambah Peralatan</a>
          </div>
+         <?php endif ?>
          <!-- /.card-header -->
             <div class="card-body">
                 <div class="table-responsive">
@@ -27,8 +29,8 @@
                                 <th>Deskripsi</th>
                                 <th width=8%>Gambar</th>
                                 <th width=9%>Tempat</th>                                
-                                <?php if($this->ion_auth->in_group('1')) : ?>
-                                <th width=9%>Aksi</th>
+                                <?php if($this->ion_auth->in_group('1') || $this->ion_auth->in_group('7')) : ?>
+                                <th width=10%>Aksi</th>
                                 <?php endif ?>
                             </tr>
                         </thead>
@@ -50,10 +52,13 @@
                                 <td>
                                     <?php echo $tool->place ?>
                                 </td>
+                                <?php if($this->ion_auth->in_group('1') || $this->ion_auth->in_group('7')) : ?>
+                                
                                 <td>
                                     <a href="<?php echo base_url('admin/tools/edit/').$tool->id ?>" class='btn btn-primary edit-btn'><i class="fas fa-pen"></i></a>
                                     <a href="<?php echo base_url('admin/tools/delete/').$tool->id ?>" class='btn btn-danger edit-btn remove'><i class="fas fa-trash-alt"></i></a>
                                 </td>
+                                <?php endif ?>
                             </tr>
                             <?php endforeach; ?>
                         </tbody>

@@ -26,7 +26,7 @@
 
          //pagination config
          $config['total_rows'] = $meetings->num_rows();
-         $config['base_url'] = base_url('admin/meeting/list');
+         $config['base_url'] = base_url('admin/meeting/list/');
          $config['per_page'] = $per_page;
          
          //boostrapp config

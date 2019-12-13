@@ -13,11 +13,11 @@
         <!-- /.content-header -->
         <!-- general form elements -->
         <div class="card">
+         <?php if($this->ion_auth->in_group('1') || $this->ion_auth->in_group('7')) : ?>
          <div class="card-header">
-         <?php if($this->ion_auth->in_group('1')) : ?>
             <a href="<?php echo base_url('admin/news/add') ?>" class='btn btn-primary'>Tambah Berita</a>
-        <?php endif ?>
          </div>
+        <?php endif ?>
          <!-- /.card-header -->
             <div class="card-body">
                 <div class="table-responsive">
@@ -29,7 +29,7 @@
                                 <th>Deskripsi</th>
                                 <th width=8%>Gambar</th>
                                 <th width=5%>Tanggal</th>
-                                <?php if($this->ion_auth->in_group('1')) : ?>
+                                <?php if($this->ion_auth->in_group('1') || $this->ion_auth->in_group('7') ) : ?>
                                 <th width=9%>Aksi</th>
                                 <?php endif ?>
                             </tr>
@@ -52,7 +52,7 @@
                                 <td>
                                     <?php echo $news->date ?>
                                 </td>
-                                <?php if($this->ion_auth->in_group('1')) : ?>
+                                <?php if($this->ion_auth->in_group('1') || $this->ion_auth->in_group('7')) : ?>
                                 <td>
                                     <a href="<?php echo base_url('admin/news/edit/').$news->id ?>" class='btn btn-primary edit-btn'><i class="fas fa-pen"></i></a>
                                     <a href="<?php echo base_url('admin/news/delete/').$news->id ?>" class='btn btn-danger edit-btn remove'><i class="fas fa-trash-alt"></i></a>

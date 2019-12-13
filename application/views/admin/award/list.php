@@ -13,11 +13,11 @@
         <!-- /.content-header -->
         <!-- general form elements -->
         <div class="card">
+         <?php if($this->ion_auth->in_group(1) || $this->ion_auth->in_group(7)):?>
          <div class="card-header">
-         <?php if($this->ion_auth->in_group(1)):?>
             <a href="<?php echo base_url('admin/award/add') ?>" class='btn btn-primary'>Tambah Prestasi</a>
-         <?php endif ?>
          </div>
+         <?php endif ?>
          <!-- /.card-header -->
             <div class="card-body">
                 <div class="table-responsive">
@@ -29,8 +29,8 @@
                                 <th>Deskripsi</th>
                                 <th width=10%>Gambar</th>
                                 <th>Tanggal</th>
-                                <?php if($this->ion_auth->in_group(1)) : ?>
-                                <th width=9%>Aksi</th>
+                                <?php if($this->ion_auth->in_group(1) || $this->ion_auth->in_group(7)) : ?>
+                                <th width=10%>Aksi</th>
                                 <?php endif?>
                             </tr>
                         </thead>
@@ -52,7 +52,7 @@
                                 <td>
                                     <?php echo $award->date ?>
                                 </td>
-                                <?php if($this->ion_auth->in_group(1)) : ?>
+                                <?php if($this->ion_auth->in_group(1) || $this->ion_auth->in_group(7)) : ?>
                                 <td>
                                       <a href="<?php echo base_url('admin/award/edit/').$award->id ?>" class='btn btn-primary edit-btn'><i class="fas fa-pen"></i></a>
                                       <a href="<?php echo base_url('admin/award/delete/').$award->id ?>" class='btn btn-danger edit-btn remove'><i class="fas fa-trash-alt"></i></a>

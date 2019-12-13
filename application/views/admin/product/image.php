@@ -14,10 +14,10 @@
         <!-- general form elements -->
         <div class="card">
          <div class="card-header">
-
+            <a href="<?php echo base_url('admin/products/') ?>" class='btn btn-warning'>Kembali</a>
          <!-- //base_url('admin/products/add') -->
-         <?php if($this->ion_auth->in_group('1')): ?>
-            <a href="<?php echo base_url('admin/products/add_image/').$product->id ?>">Tambah Gambar</a>
+         <?php if($this->ion_auth->in_group('1') || $this->ion_auth->in_group('7')): ?>
+            <a href="<?php echo base_url('admin/products/add_image/').$product->id ?>" class='btn btn-primary'>Tambah Gambar</a>
          <?php endif ?>
          </div>
          <!-- /.card-header -->
@@ -27,8 +27,10 @@
                         <thead>
                             <tr>
                                 <th width=4%>No</th>
-                                <th width=70%>Gambar</th>
-                                <th>Aksi</th>
+                                <th>Gambar</th>
+                                <?php if($this->ion_auth->in_group('1') || $this->ion_auth->in_group(7)): ?>
+                                <th width=10%>Aksi</th>
+                                <?php endif ?>
                             </tr>
                         </thead>
                         <tbody>
@@ -40,7 +42,7 @@
                                 <td>
                                     <img src="<?php echo base_url('assets/uploads/product/').$image->path ?>" alt="" height="300px">
                                 </td>
-                                <?php if($this->ion_auth->in_group('1')): ?>
+                                <?php if($this->ion_auth->in_group('1') || $this->ion_auth->in_group(7)): ?>
                                 <td>
                                     <a href="<?php echo base_url('admin/products/imagedelete/').$image->id.'/'.$product->id ?> " class='btn btn-danger edit-btn'><i class="fas fa-trash-alt"></i></a>
                                 </td>
@@ -50,7 +52,7 @@
                         </tbody>
                     </table>
                 </div>
-                <?php echo $page ?>
+                
             </div>
         </div>
     </div><!-- /.container-fluid -->

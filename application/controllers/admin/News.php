@@ -75,7 +75,7 @@
 
      public function add()
      {
-        if(!$this->ion_auth->in_group('1') && !$this->ion_auth->in_group(7)) redirect('admin/news','refresh');
+        if(!$this->ion_auth->in_group(1) && !$this->ion_auth->in_group(7)) redirect('admin/news','refresh');
         
          $data['title'] = 'Tambah Berita || ERG';
          $data['actives'] = 'news';
@@ -95,7 +95,7 @@
 
      public function edit($id = null)
      {
-        if(!$this->ion_auth->in_group('1') && !$this->ion_auth->in_group(7)) redirect('admin/news','refresh');
+        if(!$this->ion_auth->in_group(1) && !$this->ion_auth->in_group(7)) redirect('admin/news','refresh');
         if(!isset($id)) redirect('admin/news','refresh');
 
         $news = $this->news_model;
@@ -120,7 +120,7 @@
      }
 
      public function delete($id=null){
-        if(!$this->ion_auth->in_group('1') && !$this->ion_auth->in_group(7)) redirect('admin/news','refresh');
+        if(!$this->ion_auth->in_group(1) && !$this->ion_auth->in_group(7)) redirect('admin/news','refresh');
         
         if(!isset($id)) show_404();
         
