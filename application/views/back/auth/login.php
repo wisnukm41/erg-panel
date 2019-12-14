@@ -51,7 +51,7 @@
             <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
           </div>
           <div class="col-8 text-right">
-            <a href="<?= base_url('register') ?>">Register New Account</a>
+            <a href="<?= base_url('register') ?>">Sign Up</a>
           </div>
           <!-- /.col -->
         </div>

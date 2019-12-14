@@ -37,7 +37,7 @@
 
        public function getById($id)
         {
-           $this->db->select('users.id, username, sub_riset, major, year, phone, position, group_id');
+           $this->db->select('users.id, username, sub_riset, major, year, phone, position, group_id, email');
            $this->db->from('users');
            $this->db->join('users_groups','users.id = users_groups.user_id','left');
            $this->db->where('users.id', $id);
@@ -55,11 +55,11 @@
             $post = $this->input->post();
             $this->id = $post['id'];
             $data = [
-            'phone' => $post['phone'],
-            'sub_riset' => $post['sub_riset'],
-            'year' => $post['year'],
-            'major' => $post['major'],
-            'position' => $post['position'],
+            'phone' => '',
+            'sub_riset' => '',
+            'year' =>'',
+            'major' => '',
+            'position' => '',
             ];
 
             $user_id = [

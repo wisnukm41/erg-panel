@@ -31,9 +31,10 @@
           <input type="text" class="form-control" name="username" id='username' value="<?= $member->username ?>" readonly>
          </div>
          <input type="hidden" name='id' value=<?= $member->id ?>>
+         <input type="hidden" name='old_level' value=<?= $member->group_id ?>>
          <div class="form-group">
          <label for="level">User Level</label>
-         <?php echo form_dropdown('level', $groups, $member->group_id, $user_group);?>
+          <?php echo form_dropdown('level', $groups, $member->group_id, $user_group);?>
          </div>
         </div>
         <!-- /.card-body -->

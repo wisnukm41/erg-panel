@@ -35,7 +35,7 @@
      public function edit($id)
      {
         if(!isset($id)) redirect('admin/member','refresh');
-        if(!!$this->ion_auth->is_admin()) redirect('admin/member','refresh');
+        if(!$this->ion_auth->is_admin()) redirect('admin/member','refresh');
         
 
         $member = $this->member_model;
@@ -45,6 +45,10 @@
 
         if($validation->run()){
             $member->update();
+            $up = $member->getById($id);
+            if($this->input->post('old_level') == 6){ 
+            $this->sendEmail($up);
+            };
             $this->session->set_flashdata('success','Berhasil Disimpan');
         }
 
@@ -277,6 +281,44 @@
             5 => 'Hardware',
          ];
      }
+
+     function sendEmail($dataEmail)
+    {
+        // die(var_dump($dataEmail));
+        $data = [
+            'name' => $dataEmail->username
+        ];
+
+        $message=$this->load->view('admin/emailtemp', $data, TRUE);
+        
+        $this->load->library('email');
+        $config = Array(
+            'protocol' => 'smtp',
+            'smtp_host' => 'smtp.googlemail.com',
+            'smtp_port' => 465,
+            'smtp_user' => 'ergunikom.noreply@gmail.com',
+            'smtp_pass' => 'ERGunikom1!',
+            'newline' => "\r\n",
+            'smtp_crypto' => 'ssl',
+            'mailtype' => 'html'
+          );
+
+        $this->email->initialize($config);
+
+        $this->email->from('ergunikom.noreply@gmail.com','admin-erg-panel');
+        $this->email->to($dataEmail->email); 
+        $this->email->subject('Akun ERG Panel Telah di Konfirmasi');
+        $this->email->message($message);  
+
+        $this->email->send();
+            // if($send) {
+            //     echo json_encode("send");
+            // } else {
+            //     $error = $this->email->print_debugger(array('headers'));
+            //     echo json_encode($error);
+            // }
+
+    }
  }
  
  /* End of file Member.php */
