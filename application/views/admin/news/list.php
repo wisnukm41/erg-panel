@@ -27,7 +27,7 @@
                                 <th width=5%>No</th>
                                 <th width=20%>Topik</th>
                                 <th>Deskripsi</th>
-                                <th width=8%>Gambar</th>
+                                <th width=15%>Gambar</th>
                                 <th width=5%>Tanggal</th>
                                 <?php if($this->ion_auth->in_group('1') || $this->ion_auth->in_group('7') ) : ?>
                                 <th width=9%>Aksi</th>

@@ -524,7 +524,7 @@
         if($i <= 4) :
         ?>
         <div class="col-lg-3 mb-3">
-          <a href="#" class="text-dark" style="text-decoration: none">
+          <a href="<?= base_url('news/').$news->slug ?>" class="text-dark" style="text-decoration: none">
             <div class="bg-news">
               <div class="row">
                 <div class="col-lg-12">
@@ -538,7 +538,7 @@
                     <h5><?= $news->name ?></h5>
                     <div style="height:254px; overflow:hidden">
                       <p>
-                        <?= $news->description ?>
+                        <?= substr("$news->description",0,120) ?>
                       </p>
                     </div>
                   </div>

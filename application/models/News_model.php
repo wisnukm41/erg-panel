@@ -18,6 +18,7 @@
         public $img;
         public $description;
         public $date;
+        public $slug;
 
         
         public function __construct()
@@ -61,6 +62,11 @@
             return $this->db->get_where($this->table, ['id' => $id])->row();
         }
 
+        public function getBySlug($slug)
+        {
+            return $this->db->get_where($this->table, ['slug' => $slug])->row();
+        }
+
         public function save()
         {
             $post = $this->input->post();
@@ -68,6 +74,7 @@
             $this->name = $post['name'];
             $this->description = $post['description'];
             $this->date = $post['date'];    
+            $this->slug = slugify($this->name);
             $this->db->insert($this->table, $this);
             $this->img = $this->uploadImage();
             $this->db->update($this->table, $this,['id' => getId('news')->id]);
@@ -94,6 +101,7 @@
             }
             $this->description = $post['description'];
             $this->date = $post['date'];
+            $this->slug = slugify($this->name);
             $this->db->update($this->table, $this, ['id' => $post['id']]);
             $data = [$this->id => [
                 'name' => $this->name,

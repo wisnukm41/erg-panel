@@ -13,9 +13,11 @@
         <!-- /.content-header -->
         <!-- general form elements -->
         <div class="card">
+        <?php if($this->ion_auth->in_group(1) || $this->ion_auth->in_group(7)): ?>
          <div class="card-header">
             <a href="<?= base_url('admin/member/clear_trainee')?>" class="btn btn-danger">Hapus</a>
          </div>
+        <?php endif ?>
          <!-- /.card-header -->
             <div class="card-body">
                 <div class="table-responsive">

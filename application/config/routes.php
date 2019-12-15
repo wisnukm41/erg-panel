@@ -94,6 +94,9 @@ $route['admin/award'] = 'admin/award/list/';
 $route['admin/tools'] = 'admin/tools/list';
 
 //News Route
-$route['news'] = 'erg/news';
 
+$route['news'] = 'erg/news/list';
+$route['news/list'] = 'erg/news/list';
+$route['news/list/(:any)'] = 'erg/news/list/$1';
 
+$route['news/(:any)'] = 'erg/news/index/$1';
