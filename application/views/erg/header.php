@@ -28,12 +28,5 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <!-- <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <span class="navbar-text nav-item">
-                    <a class="nav-link" href="<?php //echo base_url('assets/download/daftar.doc') ?>" download="Form-Daftar-ERG-2019">
-                    Download Form Registrasi
-                    </a>
-            </span>
-        </div> -->
         </nav>
     </div>

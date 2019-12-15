@@ -326,6 +326,11 @@ body {
 	padding: 20px;
 }
 
+.desc-news h5 {
+	height: 100px;
+	overflow: hidden;
+}
+
 .date-news {
 	padding: 5px;
 	color: #fff;

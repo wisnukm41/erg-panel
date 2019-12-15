@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2019 at 01:51 PM
+-- Generation Time: Dec 15, 2019 at 05:23 AM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.1.30
 
@@ -205,8 +205,17 @@ CREATE TABLE `news` (
   `name` varchar(255) NOT NULL,
   `img` varchar(255) DEFAULT NULL,
   `description` longtext NOT NULL,
-  `date` varchar(100) NOT NULL
+  `date` varchar(100) NOT NULL,
+  `slug` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `news`
+--
+
+INSERT INTO `news` (`id`, `name`, `img`, `description`, `date`, `slug`) VALUES
+(1, 'lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum', '1.png', '<p>sadsad</p>', '11/12/2019', 'lorem-ipsum-lorem-ipsum-lorem-ipsum-lorem-ipsum-lorem-ipsum-lorem-ipsum-lorem-ipsum'),
+(2, 'sad', '2.jpg', '<p>sadsad</p>', '05/12/2019', 'sad');
 
 -- --------------------------------------------------------
 
@@ -220,13 +229,6 @@ CREATE TABLE `products` (
   `description` longtext NOT NULL,
   `date` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `products`
---
-
-INSERT INTO `products` (`id`, `name`, `description`, `date`) VALUES
-(19, 'ada', '<p>asdsad</p>', '12/12/2019');
 
 -- --------------------------------------------------------
 
@@ -283,7 +285,8 @@ CREATE TABLE `tools` (
 
 INSERT INTO `tools` (`id`, `name`, `description`, `place`, `photo`) VALUES
 (2, 'dsa', '<p>asdsad</p>', 'sadsad', '.jpg'),
-(3, 'sad', '<p>sadsad</p>', 'sadsad', '2.png');
+(3, 'sad', '<p>sadsad</p>', 'sadsad', '2.png'),
+(4, 'sadsad', '<p>sadasd</p>', 'sadasd', '3.png');
 
 -- --------------------------------------------------------
 
@@ -319,11 +322,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `photo`, `company`, `phone`, `sub_riset`, `year`, `major`, `position`) VALUES
-(13, '::1', 'thewhiz41s', '$2y$08$O9wCWzOR1r3zNWgwS1RzxOCjY9eslFvIZ.Jr6aPCnRpj2tJc68mMS', NULL, 'coba@coba.com', NULL, NULL, NULL, NULL, 1566198949, 1576306519, 1, '13.png', NULL, '123123123', 2, '2010', 'ERG', 'WHizard'),
-(19, '::1', 'Petugas', '$2y$08$2CYBjTZJLGlXWvhgrsqYLOwCIrRDuJXbOS7v6Tilk87kWmGtR2Tq2', NULL, 'petugas@petugas.com', NULL, NULL, NULL, NULL, 1568719300, 1575968706, 1, 'default.png', NULL, '', 0, '', '', ''),
-(21, '::1', 'anggota', '$2y$08$NZ.iutztWETJ0QvDR1BzWuRAPH3kc1BjGdDyAEVd/WNNSCwRV/7ja', NULL, 'anggota@anggota.com', NULL, NULL, NULL, NULL, 1568719339, 1576218049, 1, '21.jpg', NULL, '', 2, '', 'jurs', ''),
+(13, '::1', 'thewhiz41s', '$2y$08$O9wCWzOR1r3zNWgwS1RzxOCjY9eslFvIZ.Jr6aPCnRpj2tJc68mMS', NULL, 'coba@coba.com', NULL, NULL, NULL, NULL, 1566198949, 1576383755, 1, '13.png', NULL, '123123123', 2, '2010', 'ERG', 'WHizard'),
+(19, '::1', 'Petugas', '$2y$08$2CYBjTZJLGlXWvhgrsqYLOwCIrRDuJXbOS7v6Tilk87kWmGtR2Tq2', NULL, 'petugas@petugas.com', NULL, NULL, NULL, NULL, 1568719300, 1576375477, 1, 'default.png', NULL, '', 0, '', '', ''),
+(21, '::1', 'anggota', '$2y$08$NZ.iutztWETJ0QvDR1BzWuRAPH3kc1BjGdDyAEVd/WNNSCwRV/7ja', NULL, 'anggota@anggota.com', NULL, NULL, NULL, NULL, 1568719339, 1576375307, 1, '21.jpg', NULL, '', 2, '', 'jurs', ''),
 (22, '::1', 'kader', '$2y$08$mMj3oRklEupb2EFQfa0fCu2.ZjOnfIoM5t.tnmWw5/rRQaoIleTxq', NULL, 'kader@kader.com', NULL, NULL, NULL, NULL, 1568719521, NULL, 1, 'default.png', NULL, '', 0, '', '', ''),
-(25, '::1', 'WHiardsadasd', '$2y$08$wG/o8KBx6vJvCILf3atuKOjhq8IikjDOkrFyW8ar2YgrnZ273YRqa', NULL, 'wisnukm41@gmail.com', NULL, NULL, NULL, NULL, 1576305335, NULL, 1, 'default.png', NULL, '', 0, '', '', '');
+(25, '::1', 'WHiardsadasd', '$2y$08$wG/o8KBx6vJvCILf3atuKOjhq8IikjDOkrFyW8ar2YgrnZ273YRqa', NULL, 'wisnukm41@gmail.com', NULL, NULL, NULL, NULL, 1576305335, NULL, 1, 'default.png', NULL, '', 0, '', '', ''),
+(26, '::1', 'admin', '$2y$08$FsSPX3OaSF.tTSSThRRmZuunpo3T6hw2.2vG8yhu2Khi.J6ACQrZS', NULL, 'admin@admin.com', NULL, NULL, NULL, NULL, 1576383746, NULL, 1, 'default.png', NULL, '', 0, '', '', '');
 
 -- --------------------------------------------------------
 
@@ -346,7 +350,8 @@ INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
 (21, 19, 7),
 (23, 21, 2),
 (24, 22, 5),
-(27, 25, 2);
+(27, 25, 2),
+(28, 26, 1);
 
 --
 -- Indexes for dumped tables
@@ -465,19 +470,19 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `tools`
 --
 ALTER TABLE `tools`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `users_groups`
 --
 ALTER TABLE `users_groups`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- Constraints for dumped tables
