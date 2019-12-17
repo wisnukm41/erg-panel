@@ -36,7 +36,7 @@
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
-
+<?php // checkData() ?  die('True'): die('False') ?>
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light border-bottom">
     <!-- Left navbar links -->
@@ -47,6 +47,27 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="<?= base_url('admin/') ?>" class="nav-link">Home</a>
       </li>
+      <?php if(!checkData()): ?>
+      <li class="nav-item d-none d-sm-inline-block">
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          Anda belum mengisi data pribadi secara lengkap , klik 
+          <a href="<?= base_url('admin/profile/edit') ?>"> disini</a> Untuk mengisi data anda
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      </li>
+      <?php elseif(!checkPhoto()): ?>
+      <li class="nav-item d-none d-sm-inline-block">
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      Anda belum mengubah Foto anda , klik 
+          <a href="<?= base_url('admin/profile/edit') ?>"> disini</a> Untuk mengubah foto anda
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      </li>
+      <?php endif ?>
     </ul>
     <ul class="navbar-nav ml-auto">
       <a href="<?= base_url('admin/auth/logout') ?>" class="float-right pr-3 btn btn-dark">Logout</a>

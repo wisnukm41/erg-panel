@@ -26,7 +26,7 @@
     <!-- general form elements -->
     <div class="card">
       <div class="card-header">
-        <a href="<?= base_url('admin/profile') ?>">Kembali</a>
+        <a href="<?= base_url('admin/profile') ?>" class="btn btn-warning">Kembali</a>
       </div>
       <!-- /.card-header -->
       <!-- form start -->

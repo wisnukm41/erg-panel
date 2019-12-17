@@ -26,7 +26,7 @@
             </div>
                 <table class="table table-striped table-bordered">
                     <tr>
-                        <td width=30%>Username</td>
+                        <td width=30%>Nama Lengkap</td>
                         <td><?= $username->username ?></td>
                     </tr>
                     <tr>

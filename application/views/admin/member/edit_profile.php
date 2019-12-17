@@ -15,7 +15,7 @@
     <!-- general form elements -->
     <div class="card">
       <div class="card-header">
-        <a href="<?= base_url('admin/member/') ?>">Kembali</a>
+        <a href="<?= base_url('admin/profile') ?>" class="btn btn-warning">Kembali</a>
       </div>
       <!-- /.card-header -->
       <!-- form start -->
@@ -29,7 +29,7 @@
             <input type="file" id="photo" accept="image/*" name="image" accept=".png,.jpg">
           </div>
          <div class="form-group">
-          <label for="username">Username</label>
+          <label for="username">Nama Lengkap</label>
           <input type="text" class="form-control" name="username" id='username' value="<?= $username->username ?>">
          </div>
          <div class="form-group">
