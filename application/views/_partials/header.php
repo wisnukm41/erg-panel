@@ -180,7 +180,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="<?= base_url('admin/profile/').username() ?>" class="nav-link" id='profile'>
+            <a href="<?= base_url('admin/profile') ?>" class="nav-link" id='profile'>
               <i class="fas fa-cog nav-icon"></i>
               <p>Profile</p>
             </a>

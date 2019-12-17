@@ -30,7 +30,7 @@
       </div>
       <!-- /.card-header -->
       <!-- form start -->
-      <form role="form" action="<?= base_url('admin/member/change_password/').$member->username ?>" method=post>
+      <form role="form" action="<?= base_url('admin/member/change_password/') ?>" method=post>
         <div class="card-body">
          <div class="form-group">
           <label for="email">Email</label>

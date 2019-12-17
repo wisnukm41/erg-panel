@@ -187,12 +187,10 @@
         $this->load->view('_partials/footer');
      }
 
-     public function profile($username)
+     public function profile()
      {
-         if(username() !== $username) show_404();;
-         
          $data= [
-             'username' => $this->member_model->username($username),
+             'username' => actUser(),
              'title' => 'Profile || ERG',
              'riset' => $this->sub_riset(),
              'actives' => 'profile',
@@ -203,14 +201,14 @@
         $this->load->view('_partials/footer');
      }
 
-     public function edit_profile($username)
+     public function edit_profile()
      {
-        if(username() !== $username) redirect('admin/','refresh');
 
         $this->form_validation->set_rules($this->member_model->rules());
-
+        // $this->member_model->username($username)
         $data= [
-            'username' => $this->member_model->username($username),
+            'username' => actUser(),
+            'group_id' => $this->member_model->username(actUser()->username)->group_id,
             'title' => 'Edit Profile || ERG',
             'riset' => $this->sub_riset(),
              'sub_riset' => [
@@ -223,7 +221,7 @@
            if($this->form_validation->run()){
             $this->member_model->update_profile();
             $this->session->set_flashdata('success','Berhasil Disimpan');
-            redirect("admin/profile/$username",'refresh');
+            redirect("admin/profile",'refresh');
         }
         
        $this->load->view('_partials/header', $data);
@@ -231,14 +229,13 @@
        $this->load->view('_partials/footer');
      }
 
-     public function change_password($username)
+     public function change_password()
      {
-        if(username() !== $username) redirect('admin/','refresh');
 
         $this->form_validation->set_rules($this->member_model->change_password_rules());
 
         $data= [
-            'member' => $this->member_model->username($username),
+            'member' => actUser(),
             'title' => 'Ubah Password || ERG',
             'actives' => 'profile',
            ];
@@ -248,6 +245,7 @@
             if($this->member_model->change_password()){
 
             $this->session->set_flashdata('success','Saved Successfully');
+            redirect('admin/profile');
             
             } else {
                 $this->session->set_flashdata('danger','Old Password Doesn\'t Match!');

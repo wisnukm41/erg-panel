@@ -68,9 +68,9 @@ $route['admin/graduated'] = 'admin/member/graduated';
 $route['admin/chief'] = 'admin/member/chief';
 
 //Profile Route
-$route['admin/profile/(:any)'] = 'admin/member/profile/$1';
-$route['admin/profile/edit/(:any)'] = 'admin/member/edit_profile/$1';
-$route['admin/profile/change_password/(:any)'] = 'admin/member/change_password/$1';
+$route['admin/profile'] = 'admin/member/profile';
+$route['admin/profile/edit'] = 'admin/member/edit_profile';
+$route['admin/profile/change_password'] = 'admin/member/change_password';
 
 //Meeting Route
 $route['admin/meeting'] = 'admin/meeting/list';

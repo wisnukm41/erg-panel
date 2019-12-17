@@ -19,7 +19,7 @@
       </div>
       <!-- /.card-header -->
       <!-- form start -->
-      <form role="form" action="<?= base_url('admin/profile/edit/').$username->username ?>" method="post" enctype="multipart/form-data">
+      <form role="form" action="<?= base_url('admin/profile/edit') ?>" method="post" enctype="multipart/form-data">
         <div class="card-body">
           <div class="d-flex justify-content-center mb-5">
             <img src="<?= base_url('assets/uploads/profile/').$username->photo ?>" class="rounded-circle" width="150" height="150" id="profilePhoto"> 
@@ -63,7 +63,7 @@
           <input type="text" class="form-control" name='phone' id='phone' value="<?= $username->phone ?>" >
          </div>
          <input type="hidden" name='id' value=<?= $username->id ?>>
-         <input type="hidden" name='level' value=<?= $username->group_id ?>>
+         <input type="hidden" name='level' value=<?= $group_id ?>>
          <input type="hidden" name='old_img' value=<?= $username->photo ?>>
         </div>
         <!-- /.card-body -->
