@@ -29,7 +29,7 @@
       </div>
       <!-- /.card-header -->
       <!-- form start -->
-      <form role="form" action="<?= base_url('admin/products/add') ?>" method=post>
+      <form role="form" action="<?= base_url('admin/products/edit/').$products->id ?>" method=post>
         <div class="card-body">
           <div class="form-group">
             <label for="productName">Nama</label>
@@ -44,6 +44,7 @@
             <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text" autocomplete="off" value="<?= $products->date ?>"/>
          </div>
         </div>
+        <input type="hidden" name="id" value=<?= $products->id ?>>
         <!-- /.card-body -->
         <div class="card-footer">
           <button type="submit" class="btn btn-primary">Submit</button>

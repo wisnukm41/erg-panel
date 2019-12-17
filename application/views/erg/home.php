@@ -536,9 +536,9 @@
                 <div class="col-lg-12">
                   <div class="desc-news">
                     <h5><?= $news->name ?></h5>
-                    <div style="overflow:hidden">
+                    <div style="overflow:hidden;height:254px;">
                       <p>
-                        <?= substr("$news->description",0,120) ?>
+                        <?= $news->description ?>
                       </p>
                     </div>
                   </div>

@@ -55,11 +55,11 @@
             $post = $this->input->post();
             $this->id = $post['id'];
             $data = [
-            'phone' => '',
-            'sub_riset' => '',
-            'year' =>'',
-            'major' => '',
-            'position' => '',
+            'phone' => $post['phone'] ? $post['phone'] : $post['old_phone'],
+            'sub_riset' => $post['sub_riset'] ? $post['sub_riset'] : $post['old_sub_riset'],
+            'year' => $post['year'] ? $post['year'] : $post['old_year'],
+            'major' => $post['major'] ? $post['major'] : $post['old_major'],
+            'position' => $post['position'] ? $post['position'] : $post['old_position'],
             ];
 
             $user_id = [

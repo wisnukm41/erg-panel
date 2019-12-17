@@ -48,6 +48,7 @@
             $up = $member->getById($id);
             if($this->input->post('old_level') == 6){ 
             $this->sendEmail($up);
+            redirect('admin/new');
             };
             $this->session->set_flashdata('success','Berhasil Disimpan');
         }
@@ -65,6 +66,11 @@
              5 => 'Kader',
              7 => 'Pengurus',
             ];
+        
+           $data['sub_riset'] = [
+               'class'=>'form-control',
+               'id'=>'sub_riset'
+           ];
 
         $data['riset'] = $this->sub_riset();
 

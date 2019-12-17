@@ -29,7 +29,7 @@
       </div>
       <!-- /.card-header -->
       <!-- form start -->
-      <form role="form" action="<?= base_url('admin/tools/edit/').$tool->id ?>" method=post>
+      <form role="form" action="<?= base_url('admin/tools/edit/').$tool->id ?>" method="post" enctype="multipart/form-data">
         <div class="card-body">
           <div class="form-group">
             <label for="newsName">Nama</label>
@@ -38,8 +38,8 @@
             <label for="exampleInputFile">File Gambar</label>
             <div class="input-group">
               <div>
-                <input type="file" class="custom-file-input" id="exampleInputFile" accept=".png,.jpg">
-                <label class="custom-file-label" for="exampleInputFile">Pilih File</label>
+                <input type="file" class="custom-file-input" id="exampleInputFile" accept=".png,.jpg" name='img'>
+                <label class="custom-file-label" for="exampleInputFile">Pilih File Untuk Mengubah Foto</label>
               </div>
             </div>
             <input type="hidden" name="old_img" value="<?php echo $tool->photo ?>">
