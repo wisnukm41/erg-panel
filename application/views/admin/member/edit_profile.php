@@ -27,6 +27,11 @@
               <i class="fas fa-camera fa-2x"></i>
             </label>
             <input type="file" id="photo" accept="image/*" name="image" accept=".png,.jpg">
+            <div class="text-warning">
+              <p>
+                *.jpg atau *.png
+              </p>
+            </div>
           </div>
          <div class="form-group">
           <label for="username">Nama Lengkap</label>

@@ -175,7 +175,7 @@
         private function uploadImage($id)
         {
             $config['upload_path']      = './assets/uploads/profile/';
-            $config['allowed_types']    = 'gif|jpg|png';
+            $config['allowed_types']    = 'jpg|png';
             $config['file_name']        =  $id;
             $config['overwrite']        = true;
             $config['max_size']         = 1024;
@@ -189,10 +189,10 @@
                 $config['image_library']='gd2';
                 $config['source_image']='./assets/uploads/profile/'.$data['file_name'];
                 $config['create_thumb']= FALSE;
-                $config['maintain_ratio']= TRUE;
+                $config['maintain_ratio']= FALSE;
                 $config['quality']= '60%';
-                $config['width']= 800;
-                $config['height']= 800;
+                $config['width']= 500;
+                $config['height']= 500;
                 $config['new_image']= './assets/uploads/profile/'.$data['file_name'];
                 $this->load->library('image_lib', $config);
                 $this->image_lib->resize();
