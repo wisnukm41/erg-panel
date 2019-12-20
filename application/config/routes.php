@@ -59,6 +59,9 @@ $route['register'] = 'admin/auth/create_user';
 
 $route['admin'] = 'admin/erg';
 
+//Backup Route
+$route['admin/dbbackup'] = 'admin/erg/dbbackup';
+
 //Member Route
 $route['admin/admin'] = 'admin/member/admin';
 $route['admin/lecturer'] = 'admin/member/lecturer';
@@ -68,9 +71,9 @@ $route['admin/graduated'] = 'admin/member/graduated';
 $route['admin/chief'] = 'admin/member/chief';
 
 //Profile Route
-$route['admin/profile'] = 'admin/member/profile';
-$route['admin/profile/edit'] = 'admin/member/edit_profile';
-$route['admin/profile/change_password'] = 'admin/member/change_password';
+$route['admin/profile/(:any)'] = 'admin/member/profile/$1';
+$route['admin/profile/edit/(:any)'] = 'admin/member/edit_profile/$1';
+$route['admin/profile/change_password/(:any)'] = 'admin/member/change_password/$1';
 
 //Meeting Route
 $route['admin/meeting'] = 'admin/meeting/list';

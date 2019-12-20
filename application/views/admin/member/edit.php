@@ -30,39 +30,8 @@
           <label for="username">Username</label>
           <input type="text" class="form-control" name="username" id='username' value="<?= $member->username ?>" readonly>
          </div>
-         <div class="form-group">
-          <label for="email">Email</label>
-          <input type="text" class="form-control" name="email" id='email' value="<?= $member->email ?>" readonly>
-         </div>
          <input type="hidden" name='id' value=<?= $member->id ?>>
-         <input type="hidden" name='old_sub_riset' value=<?= $member->sub_riset ?>>
-         <input type="hidden" name='old_position' value=<?= $member->position ?>>
-         <input type="hidden" name='old_major' value=<?= $member->major ?>>
-         <input type="hidden" name='old_year' value=<?= $member->year ?>>
-         <input type="hidden" name='old_phone' value=<?= $member->phone ?>>
          <input type="hidden" name='old_level' value=<?= $member->group_id ?>>
-         <?php if($member->group_id != 6): ?>
-         <div class="form-group">
-          <label for="sub_riset">Sub Riset</label>
-          <?php echo form_dropdown('sub_riset', $riset, $member->sub_riset, $sub_riset);?>
-         </div>
-         <div class="form-group">
-          <label for="position">Jabatan</label>
-          <input type="text" class="form-control" name="position" id='position' value="<?= $member->position ?>">
-         </div>
-         <div class="form-group">
-          <label for="major">Jurusan</label>
-          <input type="text" class="form-control" name="major" id='major' value="<?= $member->major ?>">
-         </div>
-         <div class="form-group">
-          <label for="year">Tahun Angkatan</label>
-          <input type="text" class="form-control" name="year" id='year' value="<?= $member->year ?>">
-         </div>
-         <div class="form-group">
-          <label for="phone">Kontak</label>
-          <input type="text" class="form-control" name="phone" id='phone' value="<?= $member->phone ?>">
-         </div>
-         <?php endif ?>
          <div class="form-group">
          <label for="level">User Level</label>
           <?php echo form_dropdown('level', $groups, $member->group_id, $user_group);?>

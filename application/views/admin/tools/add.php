@@ -29,7 +29,7 @@
       </div>
       <!-- /.card-header -->
       <!-- form start -->
-      <form role="form" action="<?= base_url('admin/tools/add') ?>" method="post" enctype="multipart/form-data">
+      <form role="form" action="<?= base_url('admin/tools/add') ?>" method=post enctype="multipart/form-data">
         <div class="card-body">
           <div class="form-group">
             <label for="newsName">Nama</label>

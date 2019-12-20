@@ -1,17 +1,13 @@
     <div id="slide" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
-        <div class="carousel-item active">
-          <div class="bg-main-slide" style="background-image: url('<?= base_url('assets/uploads/images/recruitment.jpg') ?>')">
-          </div>
-          <a href="#">
-            <div class="carousel-caption">
-              <h3>Open Recruitment 2019</h3>
-              <p>Divisi ERG membuka recruitment untuk calon anggota.</p>
-            </div>
-          </a>
-        </div>
+				<?php $i = 1 ?>
         <?php foreach ($slides as $slide) : ?>
-        <div class="carousel-item">
+				<?php if ($i == 1) { ?>
+        <div class="carousel-item active">
+				<?php } else { ?>
+				<div class="carousel-item">
+				<?php } ?>
+				<?php ++$i ?>
           <div class="bg-main-slide" style="background-image: url('<?= base_url('assets/uploads/images/').$slide->img ?>')">
           </div>
           <a href="#">
@@ -536,9 +532,9 @@
                 <div class="col-lg-12">
                   <div class="desc-news">
                     <h5><?= $news->name ?></h5>
-                    <div style="overflow:hidden;height:254px;">
+                    <div style="height:254px; overflow:hidden">
                       <p>
-                        <?= $news->description ?>
+                        <?= $news->description?>
                       </p>
                     </div>
                   </div>
@@ -612,140 +608,6 @@
           <a class="carousel-control-next" href="#achievement-slide" data-slide="next">
             <span class="carousel-control-next-icon"></span>
           </a>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section id="footer" class="content-footer">
-    <div class="container">
-      <div class="row mb-5">
-        <div class="col-lg-12">
-          <div class="text-center">
-            <img class="img-logo-footer" src="<?= base_url('assets/public/erg-logo-white.png') ?>" alt="ERG Logo">
-          </div>
-        </div>
-      </div>
-      <div class="row mb-5">
-        <div class="col-lg-6">
-          <div class="row mb-4">
-            <div class="col-lg-12">
-              <h3 class="text-center">LINKS</h3>
-            </div>
-          </div>
-          <div id="footer-link" class="row text-center d-flex justify-content-center mb-3 footer-menu">
-            <div class="col-4 mb-3">
-              <span class="text-uppercase font-weight-bold">
-                <a class="text-light text-decoration-none" href="#about">Tentang</a>
-              </span>
-            </div>
-            <div class="col-4 mb-3">
-              <span class="text-uppercase font-weight-bold">
-                <a class="text-light text-decoration-none" href="#research">Riset</a>
-              </span>
-            </div>
-            <div class="col-4 mb-3">
-              <span class="text-uppercase font-weight-bold">
-                <a class="text-light text-decoration-none" href="#activity">Kegiatan</a>
-              </span>
-            </div>
-            <div class="col-4 mb-3">
-              <span class="text-uppercase font-weight-bold">
-                <a class="text-light text-decoration-none" href="#news">Berita</a>
-              </span>
-            </div>
-            <div class="col-4 mb-3">
-              <span class="text-uppercase font-weight-bold">
-                <a class="text-light text-decoration-none" href="#achievement">Prestasi</a>
-              </span>
-            </div>
-          </div>
-          <div class="row text-center d-flex justify-content-center mb-5">
-            <div class="col-12">
-              <span class="text-uppercase font-weight-bold">
-                <a class="text-light text-decoration-none" href="https://www.unikom.ac.id">UNIKOM</a>
-              </span>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6" style="border-left: 1px solid #0b387c">
-          <div class="row mb-3">
-            <div class="col-lg-12">
-              <h3 class="text-center">Follow Up</h3>
-            </div>
-          </div>
-          <div class="row mb-5">
-            <div class="col-3">
-              <a href="https://www.facebook.com/divisiergunikom">
-                <div class="row">
-                  <div class="col-lg-12">
-                    <div class="bg-follow">
-                      <img class="img-research" src="<?= base_url('assets/public/facebook.png') ?>" alt="Designer"
-                        width="100%">
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="col-3">
-              <a href="https://www.instagram.com/ergunikom_">
-                <div class="row">
-                  <div class="col-lg-12">
-                    <div class="bg-follow">
-                      <img class="img-research" src="<?= base_url('assets/public/instagram.png') ?>" alt="Designer"
-                        width="100%">
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="col-3">
-              <a href="https://www.youtube.com/channel/UCSAT6XES3dH19wegALq7-EQ">
-                <div class="row">
-                  <div class="col-lg-12">
-                    <div class="bg-follow">
-                      <img class="img-research" src="<?= base_url('assets/public/youtube.png') ?>" alt="Designer"
-                        width="100%">
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="col-3">
-              <a href="mailto:ergunikom.official@gmail.com">
-                <div class="row">
-                  <div class="col-lg-12">
-                    <div class="bg-follow">
-                      <img class="img-research" src="<?= base_url('assets/public/email.png') ?>" alt="Designer"
-                        width="100%">
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12">
-              <p class="text-center">Ruang ERG, 4503 (Gdg Miracle), Jalan Dipatiukur No. 112-116, Coblong, Lebakgede, Bandung, Kota Bandung, Jawa Barat 40132</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="text-center font-italic">
-            <p>ERG adalah divisi yang bergerak di bidang riset & teknologi. Kami membuat banyak produk untuk membantu masyarakan, mengikuti kompetisi di bidang teknologi, menyebarkan pengetahuan tentang pengembangan teknologi, bekerja dengan banyak lembaga untuk membangun produk ber-teknologi</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section id="footbar" class="content-footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="text-center">
-            <span>Crafted By ERG | Web Team</span>
-          </div>
         </div>
       </div>
     </div>

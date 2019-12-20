@@ -48,7 +48,6 @@
             $up = $member->getById($id);
             if($this->input->post('old_level') == 6){ 
             $this->sendEmail($up);
-            redirect('admin/new');
             };
             $this->session->set_flashdata('success','Berhasil Disimpan');
         }
@@ -66,11 +65,6 @@
              5 => 'Kader',
              7 => 'Pengurus',
             ];
-        
-           $data['sub_riset'] = [
-               'class'=>'form-control',
-               'id'=>'sub_riset'
-           ];
 
         $data['riset'] = $this->sub_riset();
 
@@ -187,10 +181,12 @@
         $this->load->view('_partials/footer');
      }
 
-     public function profile()
+     public function profile($username)
      {
+         if(username() !== $username) show_404();;
+         
          $data= [
-             'username' => actUser(),
+             'username' => $this->member_model->username($username),
              'title' => 'Profile || ERG',
              'riset' => $this->sub_riset(),
              'actives' => 'profile',
@@ -201,14 +197,14 @@
         $this->load->view('_partials/footer');
      }
 
-     public function edit_profile()
+     public function edit_profile($username)
      {
+        if(username() !== $username) redirect('admin/','refresh');
 
         $this->form_validation->set_rules($this->member_model->rules());
-        // $this->member_model->username($username)
+
         $data= [
-            'username' => actUser(),
-            'group_id' => $this->member_model->username(actUser()->username)->group_id,
+            'username' => $this->member_model->username($username),
             'title' => 'Edit Profile || ERG',
             'riset' => $this->sub_riset(),
              'sub_riset' => [
@@ -221,7 +217,7 @@
            if($this->form_validation->run()){
             $this->member_model->update_profile();
             $this->session->set_flashdata('success','Berhasil Disimpan');
-            redirect("admin/profile",'refresh');
+            redirect("admin/profile/$username",'refresh');
         }
         
        $this->load->view('_partials/header', $data);
@@ -229,13 +225,14 @@
        $this->load->view('_partials/footer');
      }
 
-     public function change_password()
+     public function change_password($username)
      {
+        if(username() !== $username) redirect('admin/','refresh');
 
         $this->form_validation->set_rules($this->member_model->change_password_rules());
 
         $data= [
-            'member' => actUser(),
+            'member' => $this->member_model->username($username),
             'title' => 'Ubah Password || ERG',
             'actives' => 'profile',
            ];
@@ -245,7 +242,6 @@
             if($this->member_model->change_password()){
 
             $this->session->set_flashdata('success','Saved Successfully');
-            redirect('admin/profile');
             
             } else {
                 $this->session->set_flashdata('danger','Old Password Doesn\'t Match!');

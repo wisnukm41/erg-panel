@@ -37,19 +37,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link text-uppercase font-weight-bold" href="#about">Tentang</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-uppercase font-weight-bold" href="#research">Riset</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-uppercase font-weight-bold" href="#activity">Kegiatan</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-uppercase font-weight-bold" href="#news">Berita</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-uppercase font-weight-bold" href="#achievement">Prestasi</a>
+                        <a class="nav-link text-uppercase font-weight-bold" href="<?= site_url('news') ?>">Berita</a>
                     </li>
                 </ul>
             </div>

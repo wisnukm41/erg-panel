@@ -15,14 +15,14 @@
     public function index($slug=null)
     {
         $data = [
-            'title' => 'Berita || ERG UNIKOM',
+            'title' => 'ERG | Berita',
             'news' => $this->news_model->getAll()->result(),
             'content' => $this->news_model->getBySlug($slug),
             'slug' => $slug
         ];
-        $this->load->view('erg/header', $data);
+        $this->load->view('erg/header3', $data);
          $this->load->view('erg/details', $data);
-         $this->load->view('erg/footer');
+         $this->load->view('erg/footer2');
     }
  
      public function list($offset=null)
@@ -69,12 +69,12 @@
                'page' => $this->pagination->create_links(),
                'offset' => $offset,
                'news' => $this->news_model->getPage($per_page,$offset),
-               'title' => 'Berita || ERG UNIKOM'
+               'title' => 'ERG | Berita'
            ];
         
-         $this->load->view('erg/header', $data);
+         $this->load->view('erg/header3', $data);
          $this->load->view('erg/news', $data);
-         $this->load->view('erg/footer');
+         $this->load->view('erg/footer3');
      }
  
  }

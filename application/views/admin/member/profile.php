@@ -26,7 +26,7 @@
             </div>
                 <table class="table table-striped table-bordered">
                     <tr>
-                        <td width=30%>Nama Lengkap</td>
+                        <td width=30%>Username</td>
                         <td><?= $username->username ?></td>
                     </tr>
                     <tr>
@@ -51,8 +51,8 @@
                     </tr>
                 </table>
             <div class="container">
-                <a class="btn btn-primary mt-3" href="<?= base_url('admin/profile/change_password')?>">Change Password</a>
-                <a class="btn btn-primary mt-3" href="<?= base_url('admin/profile/edit')?>">Change Profile</a>
+                <a class="btn btn-primary mt-3" href="<?= base_url('admin/profile/change_password/').$username->username?>">Change Password</a>
+                <a class="btn btn-primary mt-3" href="<?= base_url('admin/profile/edit/').$username->username?>">Change Profile</a>
             </div>
         </div>
         <!-- /.card-body -->

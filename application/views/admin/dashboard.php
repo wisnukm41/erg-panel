@@ -156,7 +156,7 @@
                     <h3 class="card-title">Anggota ERG</h3>
                   </div>
                   <!-- /.card-header -->
-                  <div class="card-body p-0" style="overflow:scroll;height:274px">
+                  <div class="card-body p-0">
                     <ul class="users-list clearfix">
                       <?php
                        foreach ($list_members as $member) :

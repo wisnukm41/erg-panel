@@ -36,7 +36,7 @@
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
-<?php // checkData() ?  die('True'): die('False') ?>
+
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light border-bottom">
     <!-- Left navbar links -->
@@ -47,27 +47,6 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="<?= base_url('admin/') ?>" class="nav-link">Home</a>
       </li>
-      <?php if(!checkData()): ?>
-      <li class="nav-item d-none d-sm-inline-block">
-      <div class="alert alert-warning alert-dismissible fade show" role="alert">
-          Anda belum mengisi data pribadi secara lengkap , klik 
-          <a href="<?= base_url('admin/profile/edit') ?>"> disini</a> Untuk mengisi data anda
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      </li>
-      <?php elseif(!checkPhoto()): ?>
-      <li class="nav-item d-none d-sm-inline-block">
-      <div class="alert alert-warning alert-dismissible fade show" role="alert">
-      Anda belum mengubah Foto anda , klik 
-          <a href="<?= base_url('admin/profile/edit') ?>"> disini</a> Untuk mengubah foto anda
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      </li>
-      <?php endif ?>
     </ul>
     <ul class="navbar-nav ml-auto">
       <a href="<?= base_url('admin/auth/logout') ?>" class="float-right pr-3 btn btn-dark">Logout</a>
@@ -99,7 +78,6 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <?php if($this->ion_auth->in_group(7) || $this->ion_auth->in_group(1)) : ?>
               <?php if($this->ion_auth->in_group(1)) : ?>
               <li class="nav-item">
                 <a href="<?= base_url('admin/admin') ?>" class="nav-link" id='admin'>
@@ -107,7 +85,6 @@
                   <p>Admin</p>
                 </a>
               </li>
-                <?php endif; ?>
               <li class="nav-item">
                 <a href="<?= base_url('admin/new') ?>" class="nav-link" id='new'>
                   <i class="far fa-circle nav-icon"></i>
@@ -201,7 +178,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="<?= base_url('admin/profile') ?>" class="nav-link" id='profile'>
+            <a href="<?= base_url('admin/profile/').username() ?>" class="nav-link" id='profile'>
               <i class="fas fa-cog nav-icon"></i>
               <p>Profile</p>
             </a>

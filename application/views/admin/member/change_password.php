@@ -26,11 +26,11 @@
     <!-- general form elements -->
     <div class="card">
       <div class="card-header">
-        <a href="<?= base_url('admin/profile') ?>" class="btn btn-warning">Kembali</a>
+        <a href="<?= base_url('admin/profile') ?>">Kembali</a>
       </div>
       <!-- /.card-header -->
       <!-- form start -->
-      <form role="form" action="<?= base_url('admin/member/change_password/') ?>" method=post>
+      <form role="form" action="<?= base_url('admin/member/change_password/').$member->username ?>" method=post>
         <div class="card-body">
          <div class="form-group">
           <label for="email">Email</label>

@@ -24,10 +24,20 @@
                 'awards' => $this->award_model->getAll()->result(),
                 'news' => $this->news_model->getAll()->result(),
             ];
-            
             $this->load->view('erg/secure', $data);
             $this->load->view('erg/header2', $data);
             $this->load->view('erg/home', $data);
+            $this->load->view('erg/footer2');
+        }
+		
+		public function news()
+        {
+            $data = [
+                'news' => $this->news_model->getAll()->result(),
+            ];
+            $this->load->view('erg/secure', $data);
+            $this->load->view('erg/header2', $data);
+            $this->load->view('erg/news', $data);
             $this->load->view('erg/footer2');
         }
     

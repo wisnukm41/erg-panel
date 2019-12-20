@@ -158,39 +158,5 @@
             return $text;
         }
     }
-
-    if (! function_exists('checkData')) {
-        function checkData(){
-
-            $ci = get_instance();
-
-            $user = $ci->ion_auth->user()->row();
-
-            $check = true;
-            
-            if( $user->phone == null || $user->sub_riset == 0 || $user->year == null || $user->major == null ) {
-                $check = false;
-            }
-
-            return $check;
-        }
-    }
-
-    if (! function_exists('checkPhoto')) {
-        function checkPhoto(){
-
-            $ci = get_instance();
-
-            $user = $ci->ion_auth->user()->row();
-
-            $check = true;
-            
-            if( $user->photo == 'default.png' ) {
-                $check = false;
-            }
-
-            return $check;
-        }
-    }
     
     

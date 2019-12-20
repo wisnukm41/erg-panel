@@ -18,17 +18,7 @@
 				<div id="footer-link" class="row text-center d-flex justify-content-center mb-3 footer-menu">
 					<div class="col-4 mb-3">
 						<span class="text-uppercase font-weight-bold">
-							<a class="text-light text-decoration-none" href="#about">Tentang</a>
-						</span>
-					</div>
-					<div class="col-4 mb-3">
-						<span class="text-uppercase font-weight-bold">
-							<a class="text-light text-decoration-none" href="#research">Riset</a>
-						</span>
-					</div>
-					<div class="col-4 mb-3">
-						<span class="text-uppercase font-weight-bold">
-							<a class="text-light text-decoration-none" href="#activity">Kegiatan</a>
+							<a class="text-light text-decoration-none" href="<?= site_url('')?>">Utama</a>
 						</span>
 					</div>
 					<div class="col-4 mb-3">
@@ -37,13 +27,6 @@
 						</span>
 					</div>
 					<div class="col-4 mb-3">
-						<span class="text-uppercase font-weight-bold">
-							<a class="text-light text-decoration-none" href="#achievement">Prestasi</a>
-						</span>
-					</div>
-				</div>
-				<div class="row text-center d-flex justify-content-center mb-5">
-					<div class="col-12">
 						<span class="text-uppercase font-weight-bold">
 							<a class="text-light text-decoration-none" href="https://www.unikom.ac.id">UNIKOM</a>
 						</span>

@@ -15,11 +15,11 @@
     <!-- general form elements -->
     <div class="card">
       <div class="card-header">
-        <a href="<?= base_url('admin/profile') ?>" class="btn btn-warning">Kembali</a>
+        <a href="<?= base_url('admin/member/') ?>">Kembali</a>
       </div>
       <!-- /.card-header -->
       <!-- form start -->
-      <form role="form" action="<?= base_url('admin/profile/edit') ?>" method="post" enctype="multipart/form-data">
+      <form role="form" action="<?= base_url('admin/profile/edit/').$username->username ?>" method="post" enctype="multipart/form-data">
         <div class="card-body">
           <div class="d-flex justify-content-center mb-5">
             <img src="<?= base_url('assets/uploads/profile/').$username->photo ?>" class="rounded-circle" width="150" height="150" id="profilePhoto"> 
@@ -27,14 +27,9 @@
               <i class="fas fa-camera fa-2x"></i>
             </label>
             <input type="file" id="photo" accept="image/*" name="image" accept=".png,.jpg">
-            <div class="text-warning">
-              <p>
-                *.jpg atau *.png
-              </p>
-            </div>
           </div>
          <div class="form-group">
-          <label for="username">Nama Lengkap</label>
+          <label for="username">Username</label>
           <input type="text" class="form-control" name="username" id='username' value="<?= $username->username ?>">
          </div>
          <div class="form-group">
@@ -52,9 +47,7 @@
           <label for="position">Jabatan</label>
           <input type="text" class="form-control" name='position' id='position' value="<?= $username->position ?>" >
          </div>
-         <?php else : ?>
-         <input type="hidden" class="form-control" name='position' id='position' value="<?= $username->position ?>" >
-         <?php endif ?> 
+         <?php endif ?>
          <div class="form-group">
           <label for="major">Jurusan</label>
           <input type="text" class="form-control" name='major' id='major' value="<?= $username->major ?>" >
@@ -68,7 +61,7 @@
           <input type="text" class="form-control" name='phone' id='phone' value="<?= $username->phone ?>" >
          </div>
          <input type="hidden" name='id' value=<?= $username->id ?>>
-         <input type="hidden" name='level' value=<?= $group_id ?>>
+         <input type="hidden" name='level' value=<?= $username->group_id ?>>
          <input type="hidden" name='old_img' value=<?= $username->photo ?>>
         </div>
         <!-- /.card-body -->

@@ -55,11 +55,11 @@
             $post = $this->input->post();
             $this->id = $post['id'];
             $data = [
-            'phone' => $post['phone'] ? $post['phone'] : $post['old_phone'],
-            'sub_riset' => $post['sub_riset'] ? $post['sub_riset'] : $post['old_sub_riset'],
-            'year' => $post['year'] ? $post['year'] : $post['old_year'],
-            'major' => $post['major'] ? $post['major'] : $post['old_major'],
-            'position' => $post['position'] ? $post['position'] : $post['old_position'],
+            'phone' => '',
+            'sub_riset' => '',
+            'year' =>'',
+            'major' => '',
+            'position' => '',
             ];
 
             $user_id = [
@@ -175,7 +175,7 @@
         private function uploadImage($id)
         {
             $config['upload_path']      = './assets/uploads/profile/';
-            $config['allowed_types']    = 'jpg|png';
+            $config['allowed_types']    = 'gif|jpg|png';
             $config['file_name']        =  $id;
             $config['overwrite']        = true;
             $config['max_size']         = 1024;
@@ -189,10 +189,10 @@
                 $config['image_library']='gd2';
                 $config['source_image']='./assets/uploads/profile/'.$data['file_name'];
                 $config['create_thumb']= FALSE;
-                $config['maintain_ratio']= FALSE;
+                $config['maintain_ratio']= TRUE;
                 $config['quality']= '60%';
-                $config['width']= 500;
-                $config['height']= 500;
+                $config['width']= 800;
+                $config['height']= 800;
                 $config['new_image']= './assets/uploads/profile/'.$data['file_name'];
                 $this->load->library('image_lib', $config);
                 $this->image_lib->resize();

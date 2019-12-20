@@ -80,7 +80,7 @@ class Auth extends CI_Controller
 				//redirect them back to the home page
 				$this->session->set_flashdata('message', $this->ion_auth->messages());
 				if($this->ion_auth->in_group('new')){
-					
+
 					$this->ion_auth->logout();
 					$this->session->set_flashdata('message', 'Please wait your accout to be activated');
 					
@@ -462,16 +462,13 @@ class Auth extends CI_Controller
 	{
 		$this->data['title'] = $this->lang->line('create_user_heading');
 
-		if($this->ion_auth->logged_in()){
-			
-			redirect('/login','refresh');
-			
-		}
 		// if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_admin())
 		// {
 		// 	redirect('admin/auth', 'refresh');
 		// }
-
+		if($this->ion_auth->logged_in()){
+			redirect('/login','refresh');
+		}
 		$tables = $this->config->item('tables', 'ion_auth');
 		$identity_column = $this->config->item('identity', 'ion_auth');
 		$this->data['identity_column'] = $identity_column;
@@ -530,7 +527,7 @@ class Auth extends CI_Controller
 				'id' => 'username',
 				'type' => 'text',
 				'class' => 'form-control',
-				'placeholder' => 'Full Name',
+				'placeholder' => 'Username',
 				'value' => $this->form_validation->set_value('username'),
 			);
 			

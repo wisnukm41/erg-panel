@@ -14,6 +14,8 @@
             </div>
         </div>
         <div class="col-3">
+        <h4>Berita Lainnya</h4>
+        <hr>
             <?php 
                 $i=1;
                 foreach($news as $n):
@@ -25,9 +27,9 @@
                         <div class="col-4">
                             <div class="other-img" style="background-image: url('<?= base_url('assets/uploads/news/').$n->img ?>')"></div>
                         </div>
-                        <div class="col-8">
-                            <h4><?= $n->name ?></h4>
-                            <p><?= substr("$n->description",0,80) ?></p>
+                        <div class="col-8" style="height:180px;overflow:hidden">
+                            <p><b><?= $n->name ?></b></p>
+                            <p><?= $n->description ?></p>
                         </div>
                     </div>
                 </a>
