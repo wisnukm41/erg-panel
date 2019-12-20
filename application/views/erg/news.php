@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="<?= base_url('assets/styles/news.css') ?>">
+<link rel="stylesheet" href="<?= base_url('assets/style/news.css') ?>">
 <section class="news-catalogue">
 	<div class="container">
 		<div class="row mb-3">
@@ -119,4 +119,4 @@
 		</div>
 	</div>
 </section>
-<script type="text/javascript" src="<?= base_url('assets/scripts/news.js') ?>"></script>
+<script type="text/javascript" src="<?= base_url('assets/script/news.js') ?>"></script>

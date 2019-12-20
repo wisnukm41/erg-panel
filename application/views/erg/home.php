@@ -553,9 +553,9 @@
         <?php endif; $i++; endforeach ?>
       </div>
       <div class="row">
-        <!-- <div class="col-lg-12 text-center">
-          <a href="#" class="btn btn-primary mx-auto">Lihat Berita Lainnya</a>
-        </div> -->
+        <div class="col-lg-12 text-center">
+          <a href="<?= site_url('news') ?>" class="btn btn-primary mx-auto">Lihat Berita Lainnya</a>
+        </div>
       </div>
     </div>
   </section>
