@@ -151,12 +151,12 @@
             </div>
           </section>
           <section class="col-lg-6 ">
-          <div class="card">
+              <div class="card">
                   <div class="card-header">
                     <h3 class="card-title">Anggota ERG</h3>
                   </div>
                   <!-- /.card-header -->
-                  <div class="card-body p-0">
+                  <div class="card-body p-0" style='height:320px;overflow:scroll'>
                     <ul class="users-list clearfix">
                       <?php
                        foreach ($list_members as $member) :
