@@ -527,7 +527,7 @@ class Auth extends CI_Controller
 				'id' => 'username',
 				'type' => 'text',
 				'class' => 'form-control',
-				'placeholder' => 'Username',
+				'placeholder' => 'Full Name',
 				'value' => $this->form_validation->set_value('username'),
 			);
 			

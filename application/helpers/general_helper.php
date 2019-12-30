@@ -158,5 +158,61 @@
             return $text;
         }
     }
+
+    if (! function_exists('getPiket')) {
+        function getPiket($arr,$day,$place,$admin = 0){
+
+            $e1='<span class="piket-tools"><a href='.base_url('admin/piket/edit/');
+            $e2='><i class="fas fa-pen"></i></a></span>';
+            $d1='<span class="piket-tools"><a href='.base_url('admin/piket/delete/');
+            $d2='><i class="fa fa-times p-del"></i></a></span></div>';
+
+            $member = '';
+            
+            if($admin == 0)
+            {
+                foreach ($arr as $e) {
+                    if($e['day'] == $day && $e['place'] == $place){
+                        $member = '<div>'.$member.$e['username'].'</div>'; 
+                    }
+                }
+            } else {
+                foreach ($arr as $e) {
+                    if($e['day'] == $day && $e['place'] == $place){
+                        $member = '<div>'.$member.$e['username'].$e1.$e['id'].$e2.$d1.$e['id'].$d2;
+                    }
+                }
+            }
+            return $member;
+        }
+    }
     
+    
+    if (! function_exists('checkPiket')) {
+        function checkPiket(){
+            
+            $out = false;
+            $ci = get_instance();
+            $user = actUser();
+            $piket = $ci->load->model('piket_model');
+            $actPiket = $ci->piket_model->actPiket($user->id);
+
+            if($actPiket != null){
+                $out = true;
+            }
+
+            return $out;
+        }
+    }
+    
+    if (! function_exists('deleteTags')) {
+        function deleteTags($text){
+            $updated = $text;
+            preg_replace("/<.*?>/", "", $updated);
+            return $updated;
+        }
+    }
+
+
+
     

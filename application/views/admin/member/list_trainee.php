@@ -25,7 +25,7 @@
                         <thead>
                             <tr>
                                 <th width=5%>No</th>
-                                <th>Username</th>
+                                <th>Nama Lengkap</th>
                                 <th>Sub-Riset</th>
                                 <th>Jurusan</th>
                                 <th>Tahun</th>

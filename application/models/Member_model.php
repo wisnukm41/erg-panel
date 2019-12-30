@@ -50,6 +50,17 @@
             return $this->db->get('groups')->result();   
         }
 
+        public function getPiket()
+        {
+           $this->db->select('username, users.id');
+           $this->db->from('users');
+           $this->db->join('users_groups','users.id = users_groups.user_id','left');
+           $where = 'group_id = 2 OR group_id = 5 OR group_id = 7';
+           $this->db->where($where);
+           $query = $this->db->get();
+           return $query->result();
+        }
+
         public function update()
         {
             $post = $this->input->post();

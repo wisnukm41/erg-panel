@@ -27,7 +27,7 @@
       <form role="form" action="<?= base_url('admin/member/edit/').$member->id ?>" method=post>
         <div class="card-body">
          <div class="form-group">
-          <label for="username">Username</label>
+          <label for="username">Nama Lengkap</label>
           <input type="text" class="form-control" name="username" id='username' value="<?= $member->username ?>" readonly>
          </div>
          <input type="hidden" name='id' value=<?= $member->id ?>>

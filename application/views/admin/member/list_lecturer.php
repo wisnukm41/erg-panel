@@ -23,7 +23,7 @@
                         <thead>
                             <tr>
                                 <th width=5%>No</th>
-                                <th>Username</th>
+                                <th>Nama Lengkap</th>
                                 <th>Jurusan</th>
                                 <th>Kontak</th>
                                 <?php if($this->ion_auth->is_admin()): ?>

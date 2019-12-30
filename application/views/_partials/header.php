@@ -172,6 +172,16 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="<?= base_url('admin/piket/') ?>" class="nav-link" id='piket'>
+            <i class="fas fa-broom nav-icon"></i>
+              <p>Piket
+              <?php if(checkPiket()) { ?>
+                <span class="badge right"> <i class="fas fa-bell text-danger fa-lg"></i></span>
+              <?php } ?>
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="<?= base_url('admin/tools/') ?>" class="nav-link" id='tools'>
             <i class="fas fa-tools nav-icon"></i>
               <p>Peralatan</p>
