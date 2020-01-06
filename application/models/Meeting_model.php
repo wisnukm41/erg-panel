@@ -39,6 +39,7 @@
         public function save()
         {
             $post = $this->input->post();
+            $this->id= uniqid();
             $this->topic = $post['topic'];
             $this->description = $post['description'];
             $this->date = $post['dates'];   
