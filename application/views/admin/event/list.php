@@ -73,7 +73,7 @@
                       <div class="card-header with-border">
                         <h5 class="card-title"> <span class='tanggal'><?= (int)explode('-',$c->date)[2] ?></span></h5>
                         <div class="card-tools">
-                            <?= $c->name ?>
+                            <?= substr($c->name,0,21)?>
                             <button class="btn btn-card-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
                             <?php if($this->ion_auth->in_group('1') || $this->ion_auth->in_group('7')) : ?>
                               <a href="<?= base_url('admin/event/edit/').$c->id ?>" class="btn btn-card-tool"><i class="fas fa-pen"></i></a>
