@@ -65,19 +65,11 @@
         {
             $post = $this->input->post();
             $this->id = $post['id'];
-            $data = [
-            'phone' => '',
-            'sub_riset' => '',
-            'year' =>'',
-            'major' => '',
-            'position' => '',
-            ];
 
             $user_id = [
                 'group_id' => $post['level'],
             ];
 
-            $this->db->update($this->table1, $data, ['id' => $this->id]);
             $this->db->update($this->table2, $user_id, ['user_id' => $this->id]);
         }
 

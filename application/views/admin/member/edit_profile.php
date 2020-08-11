@@ -42,12 +42,10 @@
           <?php echo form_dropdown('sub_riset', $riset, $username->sub_riset, $sub_riset);?>
          </div>
         <?php endif ?>
-        <?php if($this->ion_auth->in_group('1')) : ?>
          <div class="form-group">
           <label for="position">Jabatan</label>
           <input type="text" class="form-control" name='position' id='position' value="<?= $username->position ?>" >
          </div>
-         <?php endif ?>
          <div class="form-group">
           <label for="major">Jurusan</label>
           <input type="text" class="form-control" name='major' id='major' value="<?= $username->major ?>" >

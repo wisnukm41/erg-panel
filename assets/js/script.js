@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
   var date_input = $('input[name="date"]'); //our date input has the name "date"
   var container =
     $(".bootstrap-iso form").length > 0
@@ -11,7 +11,7 @@ $(document).ready(function() {
     autoclose: true
   });
 
-  $(".custom-file-input").on("change", function() {
+  $(".custom-file-input").on("change", function () {
     var fileName = $(this)
       .val()
       .split("\\")
@@ -21,7 +21,7 @@ $(document).ready(function() {
       .addClass("selected")
       .html(fileName);
   });
-  $("#finence-list a").on("click", function(e) {
+  $("#finence-list a").on("click", function (e) {
     e.preventDefault();
     $(this).tab("show");
   });
@@ -49,7 +49,7 @@ function readURL(input) {
   if (input.files && input.files[0]) {
     var reader = new FileReader();
 
-    reader.onload = function(e) {
+    reader.onload = function (e) {
       $("#profilePhoto").attr("src", e.target.result);
     };
 
@@ -57,11 +57,11 @@ function readURL(input) {
   }
 }
 
-$("#photo").change(function() {
+$("#photo").change(function () {
   readURL(this);
 });
 
-$(".remove").click(function(e) {
+$(".remove").click(function (e) {
   e.preventDefault();
   var url = $(this).attr("href");
   var id = $(this)
@@ -80,15 +80,15 @@ $(".remove").click(function(e) {
       closeOnConfirm: false,
       closeOnCancel: false
     },
-    function(isConfirm) {
+    function (isConfirm) {
       if (isConfirm) {
         $.ajax({
           url: url,
           type: "DELETE",
-          error: function() {
+          error: function () {
             alert("Something is wrong");
           },
-          success: function(data) {
+          success: function (data) {
             // $("body")
             // 	.find("#" + id)
             // 	.remove();

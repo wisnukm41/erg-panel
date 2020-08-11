@@ -173,7 +173,7 @@
             'title' => 'Pengurus || ERG',
             'members' => $this->member_model->getAll(),
             'riset' => $this->sub_riset(),
-             'active' => "chief",
+            'active' => "chief",
         ];
 
         $this->load->view('_partials/header', $data);

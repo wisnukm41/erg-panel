@@ -1,3 +1,5 @@
+<?php //die(var_dump($username)) ?>
+
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -35,7 +37,7 @@
                     </tr>
                     <tr>
                         <td width=30%>Sub Riset</td>
-                        <td><?= $riset[$username->sub_riset] ?></td>
+                        <td><?= $username->sub_riset ? $riset[$username->sub_riset] : "" ?></td>
                     </tr>
                     <tr>
                         <td width=30%>Jabatan</td>
